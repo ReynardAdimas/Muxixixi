@@ -29,6 +29,9 @@ public class LoginController {
     private Button loginBtn;
 
     @FXML
+    private Label loginMessage;
+
+    @FXML
     public void handleLogin(ActionEvent e) {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
@@ -44,7 +47,7 @@ public class LoginController {
                 AppSession.setCurrentUserId(userId);
                 SceneManager.switchToMusic();
             } else {
-                loginLabel.setText("Username atau Password Salah");
+                loginMessage    .setText("Username atau Password Salah");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

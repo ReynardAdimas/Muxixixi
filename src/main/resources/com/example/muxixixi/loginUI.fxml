@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muxixixi.controller.LoginController">
    <children>
       <Label fx:id="loginLabel" layoutX="77.0" layoutY="36.0" text="Login">
@@ -33,5 +32,6 @@
          </font>
       </Button>
       <Label fx:id="labelRegister" layoutX="415.0" layoutY="324.0" onMouseClicked="#toRegister" text="Register?" />
+      <Label fx:id="loginMessage" layoutX="202.0" layoutY="247.0" />
    </children>
 </AnchorPane>
