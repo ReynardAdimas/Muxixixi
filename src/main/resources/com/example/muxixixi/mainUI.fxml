@@ -7,38 +7,48 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muxixixi.controller.musicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="630.0" style="-fx-background-color: #9EC6F3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.muxixixi.controller.musicController">
     <children>
-        <Label fx:id="songLabel" alignment="CENTER" layoutX="5.0" layoutY="177.0" prefHeight="50.0" prefWidth="620.0" text="MP3 Player">
+        <Label fx:id="songLabel" alignment="TOP_LEFT" layoutX="16.0" layoutY="10.0" prefHeight="50.0" prefWidth="630.0" text="Muxixixi" textFill="#5e5959">
             <font>
-                <Font size="16.0" />
+                <Font name="Tw Cen MT Condensed Extra Bold" size="24.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="songProgressBar" layoutX="11.0" layoutY="227.0" prefHeight="18.0" prefWidth="608.0" progress="0.0" />
-        <Button fx:id="prevBtn" layoutX="11.0" layoutY="251.0" mnemonicParsing="false" onAction="#prevMusic" prefHeight="50.0" prefWidth="83.0" text="Prev" />
-        <Button fx:id="playBtn" layoutX="94.0" layoutY="251.0" mnemonicParsing="false" onAction="#playMusic" onMouseClicked="#playMusic" prefHeight="50.0" prefWidth="83.0" text="Play" />
-        <Button fx:id="pauseBtn" layoutX="177.0" layoutY="251.0" mnemonicParsing="false" onAction="#pauseMusic" prefHeight="50.0" prefWidth="83.0" text="Pause" />
-        <Button fx:id="resetBtn" layoutX="260.0" layoutY="251.0" mnemonicParsing="false" onAction="#resetMusic" prefHeight="50.0" prefWidth="83.0" text="Reset" />
-        <Button fx:id="nextBtn" layoutX="343.0" layoutY="251.0" mnemonicParsing="false" onAction="#nextMusic" prefHeight="50.0" prefWidth="83.0" text="Next" />
-        <ComboBox fx:id="speedComboBox" layoutX="426.0" layoutY="251.0" prefHeight="50.0" prefWidth="83.0" promptText="Speed" />
-        <Slider fx:id="volumeSlider" layoutX="515.0" layoutY="269.0" max="200.0" prefHeight="14.0" prefWidth="104.0" value="100.0" />
-        <TableView fx:id="songTable" layoutX="14.0" layoutY="25.0" prefHeight="157.0" prefWidth="516.0">
+        <ProgressBar fx:id="songProgressBar" layoutX="11.0" layoutY="433.0" prefHeight="18.0" prefWidth="608.0" progress="0.0" />
+        <Button fx:id="prevBtn" layoutX="11.0" layoutY="457.0" mnemonicParsing="false" onAction="#prevMusic" prefHeight="50.0" prefWidth="83.0" style="-fx-background-radius: 20px;" text="⏮" />
+        <Button fx:id="playBtn" layoutX="94.0" layoutY="457.0" mnemonicParsing="false" onAction="#playMusic" onMouseClicked="#playMusic" prefHeight="50.0" prefWidth="83.0" style="-fx-background-radius: 20px;" text="▶">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="pauseBtn" layoutX="177.0" layoutY="457.0" mnemonicParsing="false" onAction="#pauseMusic" prefHeight="50.0" prefWidth="83.0" style="-fx-background-radius: 20px;" text="⏸">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="resetBtn" layoutX="343.0" layoutY="457.0" mnemonicParsing="false" onAction="#resetMusic" prefHeight="50.0" prefWidth="83.0" style="-fx-background-radius: 20px;" text="Reset" />
+        <Button fx:id="nextBtn" layoutX="260.0" layoutY="457.0" mnemonicParsing="false" onAction="#nextMusic" prefHeight="50.0" prefWidth="83.0" style="-fx-background-radius: 20px;" text="⏭" />
+        <ComboBox fx:id="speedComboBox" layoutX="426.0" layoutY="457.0" prefHeight="50.0" prefWidth="83.0" promptText="Speed" style="-fx-background-radius: 20px;" />
+        <Slider fx:id="volumeSlider" layoutX="515.0" layoutY="475.0" max="200.0" prefHeight="14.0" prefWidth="104.0" value="100.0" />
+        <TableView fx:id="songTable" layoutX="14.0" layoutY="47.0" prefHeight="361.0" prefWidth="516.0" style="-fx-background-radius: 5px;">
             <columns>
                 <TableColumn fx:id="songNameColumn" prefWidth="442.0000003178914" text="Nama" />
             </columns>
         </TableView>
-        <Button fx:id="addBtn" layoutX="540.0" layoutY="25.0" mnemonicParsing="false" onAction="#addSong" prefHeight="39.0" prefWidth="75.0" text="Add">
+        <Button fx:id="addBtn" layoutX="540.0" layoutY="51.0" mnemonicParsing="false" onAction="#addSong" prefHeight="39.0" prefWidth="75.0" style="-fx-background-radius: 20px;" text="Add">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-      <Button fx:id="deleteButton" layoutX="539.0" layoutY="84.0" mnemonicParsing="false" onAction="#deleteSelectedSong" text="Delete">
+      <Button fx:id="deleteButton" layoutX="539.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteSelectedSong" style="-fx-background-radius: 20px;" text="Delete">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
     </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
 </AnchorPane>

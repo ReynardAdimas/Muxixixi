@@ -32,6 +32,9 @@ public class LoginController {
     private Label loginMessage;
 
     @FXML
+    private Label labelRegister;
+
+    @FXML
     public void handleLogin(ActionEvent e) {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();

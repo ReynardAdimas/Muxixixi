@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
@@ -111,6 +112,30 @@ public class musicController implements Initializable {
         songNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         songProgressBar.setStyle("-fx-accent: green;");
 
+        songTable.setEditable(true);
+        songNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        songNameColumn.setOnEditCommit(event -> {
+            Song selectedSong = event.getRowValue();
+            String oldName = selectedSong.getName();
+            String newName = event.getNewValue();
+
+            if(newName != null && !newName.trim().isEmpty()) {
+                selectedSong.setName(newName);
+                songTable.refresh();
+
+                try(Connection connection = Database.connect()) {
+                    String query = "UPDATE songs SET nama = ? WHERE nama = ? AND user_id = ?";
+                    PreparedStatement stmt = connection.prepareStatement(query);
+                    stmt.setString(1, newName);
+                    stmt.setString(2, oldName);
+                    stmt.setInt(3, AppSession.getCurrentUserId());
+                    stmt.executeUpdate();
+                    System.out.println("Lagu Berhasil Diubah");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         songTable.setOnMouseClicked(event -> {
             Song selectedSong = songTable.getSelectionModel().getSelectedItem();
             if(selectedSong != null) {

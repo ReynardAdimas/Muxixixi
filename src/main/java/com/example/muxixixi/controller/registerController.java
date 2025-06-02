@@ -3,6 +3,7 @@ package com.example.muxixixi.controller;
 import com.example.muxixixi.koneksi.Database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -59,6 +60,11 @@ public class registerController {
             insertStmt.setString(2, hashedPassword);
             insertStmt.executeUpdate();
             messageLabel.setText("Registrasi Berhasil");
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Success");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Registrasi Berhasil");
+//            alert.showAndWait();
             SceneManager.switchToLogin();
         } catch(SQLException ex) {
             ex.printStackTrace();
@@ -79,5 +85,9 @@ public class registerController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void toLogin() {
+        SceneManager.switchToLogin();
     }
 }
